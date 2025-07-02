@@ -4,31 +4,51 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Head1 } from "./Head1";
 import { Head2 } from "./Head2";
+import { Chuhead } from "./ChuHead";
 
 const Chu = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
-    <Canvas camera={{ position: [0, 0, 0], fov: 45 }}>
-      <ambientLight intensity={0.2} color="#1A1A40" />
-      <hemisphereLight skyColor="#ffffff" groundColor="#444444" intensity={5} />
-      <OrbitControls
-        enablePan={false}
-        enableZoom={false}
-        maxDistance={500}
-        minDistance={5}
-        minPolarAngle={Math.PI / 2}
-        maxPolarAngle={Math.PI / 2}
-      />
-      <group
-        scale={isMobile ? 0.7 : 1}
-        position={[0, 0, 0]}
-        rotation={[0, 0, 0]}
-      >
-        {/* <Head1 scale={0.02} /> */}
-        <Head2 scale={5} />
-      </group>
-    </Canvas>
+    <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+  <ambientLight intensity={10} color="#ffffff" />
+
+  <hemisphereLight
+    skyColor={"#FF0000"}
+    groundColor={"#888888"}
+    intensity={2}
+  />
+
+  <directionalLight
+    intensity={5}
+    position={[0, 0, 5]}
+    color="#fff"
+  />
+
+<directionalLight
+    intensity={5}
+    position={[50, 55, -100]}
+    color="#FFA500"
+  />
+
+<directionalLight
+    intensity={3}
+    position={[-50, -55, -100]}
+    color="#FFA500"
+  />
+
+  <OrbitControls
+    enablePan={false}
+    enableZoom={false}
+    maxDistance={3}
+    minDistance={1.5}
+    minPolarAngle={Math.PI / 2.5}
+    maxPolarAngle={Math.PI / 1.5}
+  />
+
+  <Chuhead scale={5} />
+</Canvas>
+
   );
 };
 
