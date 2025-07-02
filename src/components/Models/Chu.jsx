@@ -2,54 +2,42 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { Head1 } from "./Head1";
-import { Head2 } from "./Head2";
-import { Head3 } from "./Head3";
-
+import { Head } from "./Head";
 
 const Chu = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-  <ambientLight intensity={10} color="#ffffff" />
+    <Canvas camera={{ position: [0, 0, 45], fov: 45 }}>
+      <directionalLight intensity={2} position={[0, 0, 10]} color="#fff" />
 
-  <hemisphereLight
-    skyColor={"#FF0000"}
-    groundColor={"#888888"}
-    intensity={2}
-  />
+      <directionalLight
+        intensity={10}
+        position={[5, 10, 5]}
+        color="#B41600"
+        castShadow
+        shadow-bias={-0.0001}
+      />
 
-  <directionalLight
-    intensity={5}
-    position={[0, 0, 5]}
-    color="#fff"
-  />
+      <directionalLight
+        intensity={7}
+        position={[-5, 10, 5]}
+        color="#2CD2C0"
+        castShadow
+        shadow-bias={-0.0001}
+      />
 
-<directionalLight
-    intensity={5}
-    position={[50, 55, -100]}
-    color="#FFA500"
-  />
+      <OrbitControls
+        enablePan={false}
+        enableZoom={false}
+        maxDistance={3}
+        minDistance={1.5}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
+      />
 
-<directionalLight
-    intensity={3}
-    position={[-50, -55, -100]}
-    color="#FFA500"
-  />
-
-  <OrbitControls
-    enablePan={false}
-    enableZoom={false}
-    maxDistance={3}
-    minDistance={1.5}
-    minPolarAngle={Math.PI / 2.5}
-    maxPolarAngle={Math.PI / 1.5}
-  />
-
-  <Head3 scale={5} />
-</Canvas>
-
+      <Head scale={5} rotation={[0.1, 0, 0]} />
+    </Canvas>
   );
 };
 
