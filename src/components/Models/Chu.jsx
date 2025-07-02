@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Head } from "./Head";
-import Loader from "../Loader";
 
 const Chu = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
