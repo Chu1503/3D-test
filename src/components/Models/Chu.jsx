@@ -1,6 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Head } from "./Head";
 import Loader from "../Loader";
@@ -37,9 +37,7 @@ const Chu = () => {
         maxPolarAngle={Math.PI / 2}
       />
 
-      <Suspense fallback={<Loader />}>
-        <Head scale={5} rotation={[0.1, 0, 0]} />
-      </Suspense>
+      <Head scale={5} rotation={[0.1, 0, 0]} />
     </Canvas>
   );
 };
