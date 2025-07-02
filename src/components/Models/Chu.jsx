@@ -4,7 +4,8 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Head1 } from "./Head1";
 import { Head2 } from "./Head2";
-import { Chuhead } from "./ChuHead";
+import { Head3 } from "./Head3";
+
 
 const Chu = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -46,7 +47,7 @@ const Chu = () => {
     maxPolarAngle={Math.PI / 1.5}
   />
 
-  <Chuhead scale={5} />
+  <Head3 scale={5} />
 </Canvas>
 
   );
